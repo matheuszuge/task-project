@@ -45,9 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 		});
 	});
-});
 
-$(document).ready(function () {
 	$('#tasks-table').DataTable({
 		language: {
 			url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json', // Tradução para português

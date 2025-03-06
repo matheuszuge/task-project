@@ -1,3 +1,4 @@
+<?php require_once 'tasks/get_tasks.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +15,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
-
   </head>
 
 <body>
@@ -23,7 +23,6 @@
     <section class="container">
       <h1 class="display-4">Task Manager</h1>
       <p class="lead">Gerencie Suas Tarefas de Forma Organizada.</p>
-      <a href="#" class="btn btn-light btn-lg">Saiba Mais</a>
     </section>
   </header>
 
@@ -60,7 +59,7 @@
 
           <!-- Coluna de Imagem -->
           <div class="col-md-6 text-center">
-            <img src="https://via.placeholder.com/500x400" alt="Ilustração de Gerenciamento de Tarefas" class="img-fluid rounded shadow">
+            <img src="assets/images/businessman.png" alt="Ilustração de Gerenciamento de Tarefas" class="img-fluid rounded">
           </div>
         </div>
       </div>
@@ -125,153 +124,124 @@
       </div>
     </section>
 
-    <section id="task-manager" class="content ask-manager-section py-5 bg-white">
+    <section id="task-manager" class="content task-manager-section py-5 bg-white">
       <div class="container">
         <div class="row">
-          <!-- Formulário de Adição de Tarefas -->
-          <div class="col-md-6">
-            <h2 class="fw-bold mb-4">Adicionar Nova Tarefa</h2>
-            <form>
-              <div class="mb-3">
-                <label for="titulo" class="form-label fw-bold">Título da Tarefa:</label>
-                <input type="text" class="form-control" id="titulo" placeholder="Informe um título" required>
-              </div>
-              <div class="mb-3">
-                <label for="description" class="form-label fw-bold">Descrição:</label>
-                <textarea class="form-control" id="description" rows="4" placeholder="Informe suas demandas" required></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="task-date" class="form-label fw-bold">Data de Entrega:</label>
-                <input type="date" class="form-control" id="task-date" required>
-              </div>
-              <div class="mb-3">
-                <label for="task-time" class="form-label fw-bold">Hora de Entrega:</label>
-                <input type="time" class="form-control" id="task-time" required>
-              </div>
-              <button type="submit" class="btn btn-primary">Adicionar Tarefa</button>
-            </form>
+          <!-- Botão para abrir o modal de adição de tarefas -->
+          <div class="col-12 text-end mb-4">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTaskModal">
+              <i class="fas fa-plus"></i> Adicionar Nova Tarefa
+            </button>
           </div>
 
           <!-- Tabela de Tarefas com DataTables -->
-          <div class="col-md-6">
+          <div class="col-12">
             <h2 class="fw-bold mb-4">Lista de Tarefas</h2>
-            <table id="tasks-table" class="table table-striped table-bordered" style="width:100%">
-              <thead>
-                <tr>
-                  <th>Status</th>
-                  <th>Título</th>
-                  <th>Descrição</th>
-                  <th>Data de Entrega</th>
-                  <th>Hora de Entrega</th>
-                  <th>Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Exemplo de dados estáticos (pode ser preenchido dinamicamente) -->
-                <tr>
-                  <td class="text-center">
-                    <input type="checkbox">
-                  </td>
-                  <td>Reunião de Planejamento</td>
-                  <td>Preparar agenda para o próximo trimestre.</td>
-                  <td>2023-10-15</td>
-                  <td>14:00</td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <a href="#" class="text-primary text-decoration-none mx-2">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>
-                      <a href="#" class="text-danger text-decoration-none mx-2">
-                        <i class="fas fa-trash-alt"></i>
-                      </a>
-                    </div>
-                  </td>
+            <?php if (!empty($tasks)): ?>
+              <table id="tasks-table" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                  <tr>
+                    <th class="text-center"></th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Título</th>
+                    <th class="text-center">Descrição</th>
+                    <th class="text-center">Data de Entrega</th>
+                    <th class="text-center">Hora de Entrega</th>
+                    <th class="text-center">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($tasks as $task): ?>
+                    <tr>
+                      <td class="text-center">
 
-                </tr>
-                <tr>
-                  <td class="text-center">
-                    <input type="checkbox">
-                  </td>
-                  <td>Relatório Mensal</td>
-                  <td>Finalizar e enviar relatório de desempenho.</td>
-                  <td>2023-10-20</td>
-                  <td>10:00</td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <a href="#" class="text-primary text-decoration-none mx-2">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>
-                      <a href="#" class="text-danger text-decoration-none mx-2">
-                        <i class="fas fa-trash-alt"></i>
-                      </a>
-                    </div>
-                  </td>
-
-                </tr>
-                <tr>
-                  <td class="text-center">
-                    <input type="checkbox">
-                  </td>
-                  <td>Relatório Mensal</td>
-                  <td>Finalizar e enviar relatório de desempenho.</td>
-                  <td>2023-10-20</td>
-                  <td>10:00</td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <a href="#" class="text-primary text-decoration-none mx-2">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>
-                      <a href="#" class="text-danger text-decoration-none mx-2">
-                        <i class="fas fa-trash-alt"></i>
-                      </a>
-                    </div>
-                  </td>
-
-                </tr>
-                <tr>
-                  <td class="text-center">
-                    <input type="checkbox">
-                  </td>
-                  <td>Relatório Mensal</td>
-                  <td>Finalizar e enviar relatório de desempenho.</td>
-                  <td>2023-10-20</td>
-                  <td>10:00</td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <a href="#" class="text-primary text-decoration-none mx-2">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>
-                      <a href="#" class="text-danger text-decoration-none mx-2">
-                        <i class="fas fa-trash-alt"></i>
-                      </a>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="text-center">
-                    <input type="checkbox">
-                  </td>
-                  <td>Relatório Mensal</td>
-                  <td>Finalizar e enviar relatório de desempenho.</td>
-                  <td>2023-10-20</td>
-                  <td>10:00</td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <a href="#" class="text-primary text-decoration-none mx-2">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>
-                      <a href="#" class="text-danger text-decoration-none mx-2">
-                        <i class="fas fa-trash-alt"></i>
-                      </a>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                        <?php
+                        // Define a cor da bolinha com base no status da tarefa
+                        $dotColor = '';
+                        if ($task['status'] == 'pendente') {
+                          $dotColor = 'background-color: #ffc107;'; // Amarelo
+                        } elseif ($task['status'] == 'em andamento') {
+                          $dotColor = 'background-color: #0dcaf0;'; // Azul claro
+                        } elseif ($task['status'] == 'em atraso') {
+                          $dotColor = 'background-color: #dc3545;'; // Vermelho
+                        } else {
+                          $dotColor = 'background-color: #198754;'; // Verde
+                        }
+                        ?>
+                        <!-- Bolinha colorida -->
+                        <span class="dot" style="<?php echo $dotColor; ?>"></span>
+                      </td>
+                      <td class="text-center">
+                        <select id="statusTask-<?php echo $task['id']; ?>" name="status" class="form-select" aria-label="Status da Tarefa">
+                          <option value="pendente" <?php echo ($task['status'] == 'pendente') ? 'selected' : ''; ?>>Pendente</option>
+                          <option value="concluido" <?php echo ($task['status'] == 'concluida') ? 'selected' : ''; ?>>Concluído</option>
+                          <option value="em andamento" <?php echo ($task['status'] == 'em andamento') ? 'selected' : ''; ?>>Em Andamento</option>
+                          <option value="em atraso" <?php echo ($task['status'] == 'em atraso') ? 'selected' : ''; ?>>Em Atraso</option>
+                        </select>
+                      </td>
+                      <td class="text-center"><?php echo $task['title']; ?></td>
+                      <td class="text-center"><?php echo $task['description']; ?></td>
+                      <td class="text-center"><?php echo $task['due_date']; ?></td>
+                      <td class="text-center"><?php echo $task['due_time']; ?></td>
+                      <td class="text-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                          <a href="#" class="text-primary text-decoration-none mx-2">
+                            <i class="fas fa-pencil-alt"></i>
+                          </a>
+                          <a href="#" data-id="<?php echo $task['id']; ?>" class="delete-task text-danger text-decoration-none mx-2">
+                            <i class="fas fa-trash-alt"></i>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                <?php else: ?>
+                  <p class="text-center text-muted my-4">
+                    <strong>Não há tarefas cadastradas.</strong>
+                  </p>
+                <?php endif; ?>
+                </tbody>
+              </table>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addTaskModalLabel">Adicionar Nova Tarefa</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="add-task-form">
+              <div class="mb-3">
+                <label for="titulo" class="form-label fw-bold">Título da Tarefa:</label>
+                <input type="text" class="form-control" id="titulo" name="title" placeholder="Informe um título" required>
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label fw-bold">Descrição:</label>
+                <textarea class="form-control" id="description" name="description" rows="4" placeholder="Informe suas demandas" required></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="task-date" class="form-label fw-bold">Data de Entrega:</label>
+                <input type="date" class="form-control" id="taskDate" name="taskDate" required>
+              </div>
+              <div class="mb-3">
+                <label for="task-time" class="form-label fw-bold">Hora de Entrega:</label>
+                <input type="time" class="form-control" id="taskTime" name="taskTime" required>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-primary">Adicionar Tarefa</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <section id="contact" class="content contact-section bg-light py-5">
       <div class="container">
         <div class="row justify-content-center">
@@ -290,6 +260,7 @@
     </section>
   </main>
 
+
   <!-- Footer -->
   <footer class="bg-dark text-white text-center py-4">
     <section class="container">
@@ -300,8 +271,11 @@
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./assets/js/index.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/index.js"></script>
+  <script src="./assets/js/addTask.js"></script>
+  <script src="./assets/js/deleteTask.js"></script>
+  <script src="./assets/js/updateTask.js"></script>
 </body>
 
 </html>
