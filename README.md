@@ -3,10 +3,10 @@
 </h1>
 <p align="center">
   <b>Projeto de Teste</b></br>
-  <sub>✨ Objetivo: Desenvolver uma aplicação simples para gerenciar uma lista de tarefas utilizando
+  <sub> Objetivo: Desenvolver uma aplicação simples para gerenciar uma lista de tarefas utilizando
 PHP procedural, MySQLi para conexão com o banco de dados, Bootstrap para o layout e jQuery
 com AJAX para interações dinâmicas. 
-✨<sub>
+<sub>
 </p>
 
 <a href="https://github.com/matheuszuge/task-manager-php/blob/master/.github/images/screenshot.png">
