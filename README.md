@@ -62,7 +62,7 @@ cd task-manager-php
 
 - Crie um banco de dados MySQL chamado task_manager.
 - Adicione as credenciais do banco de dados no arquivo:
-  database/migrations/migrate.php
+  config/database.php
 
 ## 3. **Execute as Migrações**
 
