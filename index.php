@@ -9,6 +9,14 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/index.js"></script>
+  <script src="./assets/js/addTask.js"></script>
+  <script src="./assets/js/deleteTask.js"></script>
+  <script src="./assets/js/updateTask.js"></script>
   <title>Task Manager</title>
 
   <head>
@@ -18,46 +26,57 @@
   </head>
 
 <body>
-  <!-- Header -->
-  <header class="p-5 bg-primary text-white text-center">
-    <section class="container">
-      <h1 class="display-4">Task Manager</h1>
-      <p class="lead">Gerencie Suas Tarefas de Forma Organizada.</p>
-    </section>
-  </header>
-
-  <!-- Main Content -->
-  <main class="bg-light">
-    <section class="navigation-menu py-3 bg-light">
+  <header>
+    <section class="navigation-menu py-5 bg-light">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8">
-            <nav class="nav nav-pills justify-content-center">
-              <a href="#" id="home-link" class="nav-link active m-4">Home</a>
-              <a href="#" id="how-to-use-link" class="nav-link m-4">Como usar</a>
-              <a href="#" id="task-manager-link" class="nav-link m-4">Gerencie Suas Tasks</a>
-              <a href="#" id="contact-link" class="nav-link m-4">Contato</a>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <a class="navbar-brand text-primary" href="#">Task Manager</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#how-to-use" class="nav-link">Como usar</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#task-manager" class="nav-link">Gerencie Suas Tasks</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contato</a>
+                  </li>
+                </ul>
+              </div>
             </nav>
           </div>
         </div>
       </div>
+      <hr>
     </section>
+  </header>
+
+
+
+
+  <main class="bg-light">
 
     <section id="home" class="content home-section py-5 bg-light">
       <div class="container">
         <div class="row align-items-center">
-          <!-- Coluna de Texto -->
           <div class="col-md-6">
             <h2 class="fw-bold mb-4">Sobre Nós</h2>
             <p class="text-muted mb-4">
               O <strong>Task Manager</strong> foi desenvolvido para revolucionar a forma como você e sua empresa gerenciam tarefas. Com uma abordagem inovadora, oferecemos ferramentas poderosas para aumentar a produtividade, simplificar processos e garantir que nada seja esquecido. Experimente uma nova era de organização e eficiência!
             </p>
-            <a href="#task-manager" class="btn btn-primary btn-lg">
+            <a href="#task-manager" class="btn btn-primary btn-lg start-now">
               <i class="fas fa-tasks me-2"></i> Comece Agora
             </a>
           </div>
-
-          <!-- Coluna de Imagem -->
           <div class="col-md-6 text-center">
             <img src="assets/images/businessman.png" alt="Ilustração de Gerenciamento de Tarefas" class="img-fluid rounded">
           </div>
@@ -75,8 +94,6 @@
             </p>
           </div>
         </div>
-
-        <!-- Passos para usar o sistema -->
         <div class="row">
           <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm">
@@ -89,7 +106,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm">
               <div class="card-body text-center">
@@ -101,7 +117,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm">
               <div class="card-body text-center">
@@ -114,31 +129,21 @@
             </div>
           </div>
         </div>
-        <div class="row justify-content-center mt-5">
-          <div class="col-lg-6 text-center">
-            <a href="#task-manager" class="btn btn-primary btn-lg">
-              <i class="bi bi-play-circle"></i> Comece Agora
-            </a>
-          </div>
-        </div>
       </div>
     </section>
 
     <section id="task-manager" class="content task-manager-section py-5 bg-white">
       <div class="container">
         <div class="row">
-          <!-- Botão para abrir o modal de adição de tarefas -->
           <div class="col-12 text-end mb-4">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTaskModal">
               <i class="fas fa-plus"></i> Adicionar Nova Tarefa
             </button>
           </div>
-
-          <!-- Tabela de Tarefas com DataTables -->
           <div class="col-12">
             <h2 class="fw-bold mb-4">Lista de Tarefas</h2>
-            <?php if (!empty($tasks)): ?>
-              <table id="tasks-table" class="table table-striped table-bordered" style="width:100%">
+            <div class="d-none d-md-block">
+              <table id="dataTable" class="table table-striped table-bordered w-100" style="width:100%">
                 <thead>
                   <tr>
                     <th class="text-center"></th>
@@ -151,57 +156,112 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($tasks as $task): ?>
+                  <?php if (!empty($tasks)): ?>
+                    <?php foreach ($tasks as $task): ?>
+                      <tr>
+                        <td class="text-center">
+                          <?php
+                          $dotColor = match ($task['status']) {
+                            'pendente' => 'background-color: #ffc107;',
+                            'em andamento' => 'background-color: #0dcaf0;',
+                            'em atraso' => 'background-color: #dc3545;',
+                            default => 'background-color: #198754;',
+                          };
+                          ?>
+                          <span class="dot" style="<?php echo $dotColor; ?>"></span>
+                        </td>
+                        <td class="text-center">
+                          <select id="statusTask-<?php echo $task['id']; ?>" name="status" class="form-select">
+                            <option value="pendente" <?php echo ($task['status'] == 'pendente') ? 'selected' : ''; ?>>Pendente</option>
+                            <option value="concluido" <?php echo ($task['status'] == 'concluida') ? 'selected' : ''; ?>>Concluído</option>
+                            <option value="em andamento" <?php echo ($task['status'] == 'em andamento') ? 'selected' : ''; ?>>Em Andamento</option>
+                            <option value="em atraso" <?php echo ($task['status'] == 'em atraso') ? 'selected' : ''; ?>>Em Atraso</option>
+                          </select>
+                        </td>
+                        <td class="text-center"><?php echo htmlspecialchars($task['title']); ?></td>
+                        <td class="text-center"><?php echo htmlspecialchars($task['description']); ?></td>
+                        <td class="text-center"><?php echo htmlspecialchars($task['due_date']); ?></td>
+                        <td class="text-center"><?php echo htmlspecialchars($task['due_time']); ?></td>
+                        <td class="text-center">
+                          <div class="d-flex justify-content-center align-items-center">
+                            <a href="#" data-id="<?php echo $task['id']; ?>" class="delete-task text-danger text-decoration-none mx-2">
+                              <i class="fas fa-trash-alt"></i>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
                     <tr>
-                      <td class="text-center">
+                      <td colspan="7" class="text-center text-muted my-4">
+                        <strong>Não há tarefas cadastradas.</strong>
+                      </td>
+                    </tr>
+                  <?php endif; ?>
+                </tbody>
+              </table>
+            </div>
 
-                        <?php
-                        // Define a cor da bolinha com base no status da tarefa
-                        $dotColor = '';
-                        if ($task['status'] == 'pendente') {
-                          $dotColor = 'background-color: #ffc107;'; // Amarelo
-                        } elseif ($task['status'] == 'em andamento') {
-                          $dotColor = 'background-color: #0dcaf0;'; // Azul claro
-                        } elseif ($task['status'] == 'em atraso') {
-                          $dotColor = 'background-color: #dc3545;'; // Vermelho
-                        } else {
-                          $dotColor = 'background-color: #198754;'; // Verde
-                        }
-                        ?>
-                        <!-- Bolinha colorida -->
-                        <span class="dot" style="<?php echo $dotColor; ?>"></span>
-                      </td>
-                      <td class="text-center">
-                        <select id="statusTask-<?php echo $task['id']; ?>" name="status" class="form-select" aria-label="Status da Tarefa">
-                          <option value="pendente" <?php echo ($task['status'] == 'pendente') ? 'selected' : ''; ?>>Pendente</option>
-                          <option value="concluido" <?php echo ($task['status'] == 'concluida') ? 'selected' : ''; ?>>Concluído</option>
-                          <option value="em andamento" <?php echo ($task['status'] == 'em andamento') ? 'selected' : ''; ?>>Em Andamento</option>
-                          <option value="em atraso" <?php echo ($task['status'] == 'em atraso') ? 'selected' : ''; ?>>Em Atraso</option>
-                        </select>
-                      </td>
-                      <td class="text-center"><?php echo $task['title']; ?></td>
-                      <td class="text-center"><?php echo $task['description']; ?></td>
-                      <td class="text-center"><?php echo $task['due_date']; ?></td>
-                      <td class="text-center"><?php echo $task['due_time']; ?></td>
-                      <td class="text-center">
-                        <div class="d-flex justify-content-center align-items-center">
-                          <a href="#" class="text-primary text-decoration-none mx-2">
-                            <i class="fas fa-pencil-alt"></i>
-                          </a>
+            <div class="d-block d-md-none">
+              <div class="row" id="task-cards-container">
+                <?php if (!empty($tasks)): ?>
+                  <?php foreach ($tasks as $task): ?>
+                    <div class="col-12 col-sm-6 col-md-4 mb-4 task-card">
+                      <div class="card">
+                        <div class="card-header">
+                          <span class="dot" id="mobile-<?= $task['id'] ?>" style="background-color: <?php
+                                                                                                    echo match ($task['status']) {
+                                                                                                      'pendente' => '#ffc107',
+                                                                                                      'em andamento' => '#0dcaf0',
+                                                                                                      'em atraso' => '#dc3545',
+                                                                                                      default => '#198754',
+                                                                                                    };
+                                                                                                    ?>"></span>
+                          <span class="ms-2"><?php echo htmlspecialchars($task['title']); ?></span>
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text"><?php echo htmlspecialchars($task['description']); ?></p>
+                          <p class="card-text"><strong>Data de Entrega:</strong> <?php echo htmlspecialchars($task['due_date']); ?></p>
+                          <p class="card-text"><strong>Hora de Entrega:</strong> <?php echo htmlspecialchars($task['due_time']); ?></p>
+                        </div>
+                        <div class="card-footer text-end">
+                          <select id="statusTask-<?php echo $task['id']; ?>" name="status" class="form-select d-inline-block w-auto">
+                            <option value="pendente" <?php echo ($task['status'] == 'pendente') ? 'selected' : ''; ?>>Pendente</option>
+                            <option value="concluido" <?php echo ($task['status'] == 'concluida') ? 'selected' : ''; ?>>Concluído</option>
+                            <option value="em andamento" <?php echo ($task['status'] == 'em andamento') ? 'selected' : ''; ?>>Em Andamento</option>
+                            <option value="em atraso" <?php echo ($task['status'] == 'em atraso') ? 'selected' : ''; ?>>Em Atraso</option>
+                          </select>
                           <a href="#" data-id="<?php echo $task['id']; ?>" class="delete-task text-danger text-decoration-none mx-2">
                             <i class="fas fa-trash-alt"></i>
                           </a>
                         </div>
-                      </td>
-                    </tr>
+                      </div>
+                    </div>
                   <?php endforeach; ?>
                 <?php else: ?>
-                  <p class="text-center text-muted my-4">
-                    <strong>Não há tarefas cadastradas.</strong>
-                  </p>
+                  <div class="col-12">
+                    <p class="text-center text-muted"><strong>Não há tarefas cadastradas.</strong></p>
+                  </div>
                 <?php endif; ?>
-                </tbody>
-              </table>
+              </div>
+
+              <!-- Controles de Paginação -->
+              <div class="row mt-3">
+                <div class="col-12 text-center">
+                  <nav aria-label="Paginação de Tarefas">
+                    <ul class="pagination justify-content-center" id="pagination">
+                      <li class="page-item">
+                        <a class="page-link" href="#" id="prev-page">Anterior</a>
+                      </li>
+                      <!-- Os números de página serão inseridos aqui via JavaScript -->
+                      <li class="page-item">
+                        <a class="page-link" href="#" id="next-page">Próxima</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -248,7 +308,6 @@
           <div class="col-lg-8 text-center">
             <h2 class="fw-bold mb-4">Entre em Contato</h2>
             <p class="lead mb-5">Tem alguma dúvida ou sugestão? Mande uma mensagem!</p>
-            <!-- Links para Redes Sociais -->
             <div class="mt-5">
               <a href="https://www.linkedin.com/in/matheusrobertozuge-6b6ab1182/" target="_blank" class="btn btn-outline-primary btn-lg">
                 <i class="bi bi-linkedin"></i> LinkedIn
@@ -260,22 +319,12 @@
     </section>
   </main>
 
-
-  <!-- Footer -->
   <footer class="bg-dark text-white text-center py-4">
     <section class="container">
       <p class="mb-0">&copy; 2023 Desenvolvido por <a href="https://www.linkedin.com/in/matheusrobertozuge-6b6ab1182/">Matheus Roberto Züge</a>.</p>
     </section>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./assets/js/index.js"></script>
-  <script src="./assets/js/addTask.js"></script>
-  <script src="./assets/js/deleteTask.js"></script>
-  <script src="./assets/js/updateTask.js"></script>
+
 </body>
 
 </html>

@@ -12,7 +12,11 @@ if (mysqli_num_rows($result) > 0) {
   $current_date = date('Y-m-d');
   $current_time = date('H:i:s');
 
-  foreach ($tasks as $task) {
+  foreach ($tasks as &$task) {
+    // Tratamento de dados: converte 'due_date' para o formato 'd/m/Y'
+    $task['due_date'] = date('d/m/Y', strtotime($task['due_date']));
+
+    // Comparação das datas, já no formato brasileiro
     if ($task['due_date'] < $current_date || ($task['due_date'] == $current_date && $task['due_time'] < $current_time)) {
       // Atualiza o status no banco de dados
       $updateQuery = "UPDATE tasks SET status = 'em atraso' WHERE id = ?";

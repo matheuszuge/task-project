@@ -12,8 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id']) && isset($_POST[
     echo "ID inválido!";
     exit;
   }
-
-
   // Query para atualizar o status da tarefa
   $query = "UPDATE tasks SET status = '$status' WHERE id = $id";
 
