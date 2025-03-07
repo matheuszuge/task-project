@@ -193,7 +193,7 @@
                     <?php endforeach; ?>
                   <?php else: ?>
                     <tr>
-                      <td colspan="7" class="text-center text-muted my-4">
+                      <td colspan="7" id="warning" class="text-center text-muted my-4">
                         <strong>Não há tarefas cadastradas.</strong>
                       </td>
                     </tr>

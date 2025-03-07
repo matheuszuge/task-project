@@ -44,9 +44,6 @@ $(document).ready(function () {
               <td class="text-center">${formData.taskTime}</td>
               <td class="text-center">
                 <div class="d-flex justify-content-center align-items-center">
-                  <a href="#" class="text-primary text-decoration-none mx-2">
-                    <i class="fas fa-pencil-alt"></i>
-                  </a>
                   <a href="#" data-id="${data.id}" class="delete-task text-danger text-decoration-none mx-2">
                     <i class="fas fa-trash-alt"></i>
                   </a>
@@ -56,15 +53,6 @@ $(document).ready(function () {
           `;
 
 					//Instancia o datatables para adicionar uma linha.
-					if (
-						typeof dataTableInstance !== 'undefined' &&
-						dataTableInstance !== null
-					) {
-						dataTableInstance.row.add($(newRow)).draw();
-					} else {
-						$('#tasks-table tbody').append(newRow);
-					}
-
 					if (dataTableInstance) {
 						dataTableInstance.destroy();
 					}
@@ -74,6 +62,20 @@ $(document).ready(function () {
 							url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json',
 						},
 					});
+
+					const warning = document.querySelector('#warning');
+
+					if (
+						typeof dataTableInstance !== 'undefined' &&
+						dataTableInstance !== null
+					) {
+						dataTableInstance.row.add($(newRow)).draw();
+					} else {
+						$('#dataTable tbody').append(newRow);
+					}
+
+					// Remove o aviso se existir
+					warning?.remove();
 
 					//adiciona um timeout no overflow.
 					setTimeout(function () {
