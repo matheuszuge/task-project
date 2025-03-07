@@ -9,20 +9,20 @@ com AJAX para interações dinâmicas.
 <sub>
 </p>
 
-<a href="https://github.com/matheuszuge/task-manager-php/blob/master/.github/images/screenshot.png">
+<a href="https://github.com/matheuszuge/task-manager-php/.github/home.png">
   <img src=".github/home.png" alt="Task Manager Screenshot" />
 </a>
 
-<a href="https://github.com/matheuszuge/task-manager-php/blob/master/.github/images/screenshot.png">
-  <img src=".github/howToUse.png" alt="Task Manager Screenshot" />
+<a href="https://github.com/matheuszuge/task-manager-php/.github/howToUse.png">
+  <img src=".github/howToUse.png" alt="Task Manager Screenshot"/>
 </a>
 
-<a href="https://github.com/matheuszuge/task-manager-php/blob/master/.github/images/screenshot.png">
-  <img src=".github/taskManager.png" alt="Task Manager Screenshot" />
+<a href="https://github.com/matheuszuge/task-manager-php/.github/taskManager.png">
+  <img src=".github/taskManager.png" alt="Task Manager Screenshot"/>
 </a>
 
-<a href="https://github.com/matheuszuge/task-manager-php/blob/master/.github/images/screenshot.png">
-  <img src=".github/contact.png" alt="Task Manager Screenshot" />
+<a href="https://github.com/matheuszuge/task-manager-php/.github/contact.png">
+  <img src=".github/contact.png" alt="Task Manager Screenshot"/>
 </a>
 
 ## **Dependências**
