@@ -325,7 +325,7 @@
 
   <footer class="bg-dark text-white text-center py-4">
     <section class="container">
-      <p class="mb-0">&copy; 2023 Desenvolvido por <a href="https://www.linkedin.com/in/matheusrobertozuge-6b6ab1182/">Matheus Roberto Züge</a>.</p>
+      <p class="mb-0">&copy; 2025 Desenvolvido por <a href="https://www.linkedin.com/in/matheusrobertozuge-6b6ab1182/">Matheus Roberto Züge</a>.</p>
     </section>
   </footer>
 

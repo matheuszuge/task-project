@@ -61,8 +61,20 @@ cd task-manager-php
 ## 2. **Configure o Banco de Dados**
 
 - Crie um banco de dados MySQL.
-- Adicione as credenciais do banco de dados no arquivo:
-  config/database.php
+- Adicione as credenciais do banco de dados no arquivo `config/database.php`.
+
+### Habilitando a Extensão mysqli
+
+Caso a extensão mysqli não esteja habilitada, siga os passos abaixo:
+
+1. Abra o arquivo `php.ini` no seu editor de texto preferido.
+2. Localize a linha que contém `;extension=mysqli`.
+3. Remova o `;` no início da linha para descomentar:
+
+```ini
+;extension=mysqli  ; Remove o ; para habilitar
+extension=mysqli   ; Linha habilitada
+```
 
 ## 3. **Execute as Migrações**
 
@@ -72,7 +84,7 @@ cd task-manager-php
 php database/migrations/migrate.php
 ```
 
-## 4. **Inicie o Servidor PHP**
+## 4. **Inicie o Servidor**
 
 ```bash
 php -S localhost:8000

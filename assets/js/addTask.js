@@ -70,8 +70,12 @@ $(document).ready(function () {
           `;
 
 					//Instancia o datatables para adicionar uma linha.
-					if (dataTableInstance) {
-						dataTableInstance.destroy();
+					if (!dataTableInstance) {
+						dataTableInstance = $('#dataTable').DataTable({
+							language: {
+								url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json',
+							},
+						});
 					}
 
 					dataTableInstance = $('#dataTable').DataTable({
@@ -82,14 +86,7 @@ $(document).ready(function () {
 
 					const warning = document.querySelector('#warning');
 
-					if (
-						typeof dataTableInstance !== 'undefined' &&
-						dataTableInstance !== null
-					) {
-						dataTableInstance.row.add($(newRow)).draw();
-					} else {
-						$('#dataTable tbody').append(newRow);
-					}
+					dataTableInstance.row.add($(newRow)).draw();
 
 					// Remove o aviso se existir
 					warning?.remove();
