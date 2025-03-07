@@ -68,8 +68,12 @@ cd task-manager-php
 
 - No terminal, execute o seguinte comando para criar as tabelas no banco de dados:
 
+```bash
 php database/migrations/migrate.php
+```
 
 ## 4. **Inicie o Servidor PHP**
 
-- php -S localhost:8000
+```bash
+php -S localhost:8000
+```
