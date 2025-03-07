@@ -3,6 +3,17 @@ $(document).ready(function () {
 	$('#add-task-form').on('submit', function (event) {
 		event.preventDefault();
 
+		// Função para formatar a data (YYYY-MM-DD para DD/MM/YYYY)
+		function formatDate(dateString) {
+			const date = new Date(dateString);
+			return date.toLocaleDateString('pt-BR'); // Formato brasileiro (DD/MM/YYYY)
+		}
+
+		// Função para formatar a hora (HH:MM:SS para HH:MM)
+		function formatTime(timeString) {
+			return timeString.slice(0, 5); // Remove os segundos (últimos 3 caracteres)
+		}
+
 		const formData = {
 			title: $('#titulo').val(),
 			description: $('#description').val(),
@@ -10,6 +21,10 @@ $(document).ready(function () {
 			taskTime: $('#taskTime').val(),
 			status: 'pendente',
 		};
+
+		// Formata a data e a hora
+		const formattedDate = formatDate(formData.taskDate);
+		const formattedTime = formatTime(formData.taskTime);
 
 		//Inicia o AJAX envio para o tasks/add_task.php
 		$.ajax({
@@ -21,6 +36,7 @@ $(document).ready(function () {
 
 				if (data.success) {
 					alert(data.message);
+					console.log(data.id);
 
 					//Remove o modal e o backdrop que estava atrapalhando o layout
 					$('#addTaskModal').modal('hide');
@@ -34,14 +50,15 @@ $(document).ready(function () {
               <td class="text-center">
                 <select id="statusTask-${data.id}" name="status" class="form-select" aria-label="Status da Tarefa">
                   <option value="pendente" selected>Pendente</option>
-                  <option value="concluida">Concluída</option>
-                  <option value="em Andamento">Em Andamento</option>
+                  <option value="concluido">Concluído</option>
+                  <option value="em andamento">Em Andamento</option>
+									<option value="em atraso">Em Atraso</option>
                 </select>
               </td>
               <td class="text-center">${formData.title}</td>
               <td class="text-center">${formData.description}</td>
-              <td class="text-center">${formData.taskDate}</td>
-              <td class="text-center">${formData.taskTime}</td>
+                            <td class="text-center">${formattedDate}</td> 
+                            <td class="text-center">${formattedTime}</td> 
               <td class="text-center">
                 <div class="d-flex justify-content-center align-items-center">
                   <a href="#" data-id="${data.id}" class="delete-task text-danger text-decoration-none mx-2">

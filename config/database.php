@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "";
+$database = "database_task";
 
 // Criando a conexão 
 $conn = mysqli_connect($host, $user, $password, $database);

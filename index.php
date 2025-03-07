@@ -1,4 +1,9 @@
-<?php require_once 'tasks/get_tasks.php'; ?>
+<?php require_once 'tasks/get_tasks.php';
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,12 +23,6 @@
   <script src="./assets/js/deleteTask.js"></script>
   <script src="./assets/js/updateTask.js"></script>
   <title>Task Manager</title>
-
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager</title>
-  </head>
 
 <body>
   <header>
@@ -157,7 +156,11 @@
                 </thead>
                 <tbody>
                   <?php if (!empty($tasks)): ?>
-                    <?php foreach ($tasks as $task): ?>
+                    <?php foreach ($tasks as $task):
+
+
+                    ?>
+
                       <tr>
                         <td class="text-center">
                           <?php
@@ -173,15 +176,16 @@
                         <td class="text-center">
                           <select id="statusTask-<?php echo $task['id']; ?>" name="status" class="form-select">
                             <option value="pendente" <?php echo ($task['status'] == 'pendente') ? 'selected' : ''; ?>>Pendente</option>
-                            <option value="concluido" <?php echo ($task['status'] == 'concluida') ? 'selected' : ''; ?>>Concluído</option>
+                            <option value="concluido" <?php echo ($task['status'] == 'concluido') ? 'selected' : ''; ?>>Concluído</option>
                             <option value="em andamento" <?php echo ($task['status'] == 'em andamento') ? 'selected' : ''; ?>>Em Andamento</option>
                             <option value="em atraso" <?php echo ($task['status'] == 'em atraso') ? 'selected' : ''; ?>>Em Atraso</option>
                           </select>
                         </td>
                         <td class="text-center"><?php echo htmlspecialchars($task['title']); ?></td>
                         <td class="text-center"><?php echo htmlspecialchars($task['description']); ?></td>
-                        <td class="text-center"><?php echo htmlspecialchars($task['due_date']); ?></td>
-                        <td class="text-center"><?php echo htmlspecialchars($task['due_time']); ?></td>
+                        <td class="text-center"><?php echo date('d/m/Y', strtotime($task['due_date'])); ?></td>
+                        <td class="text-center"><?php echo date_format(date_create($task['due_time']), 'H:i'); ?></td>
+
                         <td class="text-center">
                           <div class="d-flex justify-content-center align-items-center">
                             <a href="#" data-id="<?php echo $task['id']; ?>" class="delete-task text-danger text-decoration-none mx-2">
@@ -221,8 +225,8 @@
                         </div>
                         <div class="card-body">
                           <p class="card-text"><?php echo htmlspecialchars($task['description']); ?></p>
-                          <p class="card-text"><strong>Data de Entrega:</strong> <?php echo htmlspecialchars($task['due_date']); ?></p>
-                          <p class="card-text"><strong>Hora de Entrega:</strong> <?php echo htmlspecialchars($task['due_time']); ?></p>
+                          <p class="card-text"><strong>Data de Entrega:</strong> <?php echo date('d/m/Y', strtotime($task['due_date'])); ?></p>
+                          <p class="card-text"><strong>Hora de Entrega:</strong> <?php echo date_format(date_create($task['due_time']), 'H:i'); ?></p>
                         </div>
                         <div class="card-footer text-end">
                           <select id="statusTask-<?php echo $task['id']; ?>" name="status" class="form-select d-inline-block w-auto">

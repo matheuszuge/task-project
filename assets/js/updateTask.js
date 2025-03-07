@@ -8,6 +8,8 @@ $(document).ready(function () {
 
 		const newStatus = $(this).val();
 
+		console.log(newStatus);
+
 		$.ajax({
 			url: 'tasks/update_task.php',
 			method: 'POST',

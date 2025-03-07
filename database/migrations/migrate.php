@@ -9,7 +9,7 @@ $sql = "CREATE TABLE IF NOT EXISTS tasks (
     description TEXT NOT NULL,
     due_date DATE NOT NULL,
     due_time TIME NOT NULL,
-    status ENUM('pendente', 'concluida', 'em andamento', 'em atraso') DEFAULT 'pendente',
+    status ENUM('pendente', 'concluido', 'em andamento', 'em atraso') DEFAULT 'pendente',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
 

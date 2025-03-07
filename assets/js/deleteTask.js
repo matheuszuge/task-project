@@ -1,6 +1,4 @@
 $(document).ready(function () {
-	console.log('Script carregado!');
-
 	// Delegação de eventos para capturar o clique no botão de exclusão
 	$(document).on('click', '.delete-task', function () {
 		// Obtém o ID da tarefa a partir do atributo data-id
