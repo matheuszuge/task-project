@@ -3,10 +3,10 @@
 </h1>
 <p align="center">
   <b>Projeto de Teste</b></br>
-  <sub>✨ Objetivo: Desenvolver uma aplicação simples para gerenciar uma lista de tarefas utilizando
+  <sub> Objetivo: Desenvolver uma aplicação simples para gerenciar uma lista de tarefas utilizando
 PHP procedural, MySQLi para conexão com o banco de dados, Bootstrap para o layout e jQuery
 com AJAX para interações dinâmicas. 
-✨<sub>
+<sub>
 </p>
 
 <a href="https://github.com/matheuszuge/task-manager-php/blob/master/.github/images/screenshot.png">
@@ -43,11 +43,6 @@ Para rodar o projeto, você precisará das seguintes dependências:
 - **Bootstrap**: Framework CSS para estilização.
 - **jQuery**: Biblioteca JavaScript para interações dinâmicas.
 
-### 4. **Node.js e npm** (opcional)
-
-- Necessários apenas se você quiser instalar as dependências front-end localmente.
-- [Download Node.js](https://nodejs.org/)
-
 ---
 
 ## **Instalação**
@@ -67,14 +62,18 @@ cd task-manager-php
 
 - Crie um banco de dados MySQL chamado task_manager.
 - Adicione as credenciais do banco de dados no arquivo:
-  database/migrations/migrate.php
+  config/database.php
 
 ## 3. **Execute as Migrações**
 
 - No terminal, execute o seguinte comando para criar as tabelas no banco de dados:
 
+```bash
 php database/migrations/migrate.php
+```
 
 ## 4. **Inicie o Servidor PHP**
 
-- php -S localhost:8000
+```bash
+php -S localhost:8000
+```

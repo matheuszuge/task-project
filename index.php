@@ -206,7 +206,7 @@
               <div class="row" id="task-cards-container">
                 <?php if (!empty($tasks)): ?>
                   <?php foreach ($tasks as $task): ?>
-                    <div class="col-12 col-sm-6 col-md-4 mb-4 task-card">
+                    <div id="task-card-<?= $task['id'] ?>" class="col-12 col-sm-6 col-md-4 mb-4 task-card">
                       <div class="card">
                         <div class="card-header">
                           <span class="dot" id="mobile-<?= $task['id'] ?>" style="background-color: <?php

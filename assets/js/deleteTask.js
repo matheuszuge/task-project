@@ -18,9 +18,14 @@ $(document).ready(function () {
 				success: function (response) {
 					// Exibe a resposta do PHP (mensagem de sucesso ou erro)
 					console.log(response);
-
-					// Remove a linha da tabela dinamicamente
-					$(`a[data-id="${taskId}"]`).closest('tr').remove();
+					// Verifica se é mobile ou desktop
+					if ($(window).width() <= 768) {
+						// Layout mobile: remove o card com a ID correspondente
+						$(`#task-card-${taskId}`).remove();
+					} else {
+						// Layout desktop: remove a linha da tabela
+						$(`a[data-id="${taskId}"]`).closest('tr').remove();
+					}
 				},
 				error: function (xhr, status, error) {
 					alert('Erro ao excluir a tarefa');
