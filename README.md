@@ -60,7 +60,7 @@ cd task-manager-php
 
 ## 2. **Configure o Banco de Dados**
 
-- Crie um banco de dados MySQL chamado task_manager.
+- Crie um banco de dados MySQL.
 - Adicione as credenciais do banco de dados no arquivo:
   config/database.php
 
