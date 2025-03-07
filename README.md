@@ -43,11 +43,6 @@ Para rodar o projeto, você precisará das seguintes dependências:
 - **Bootstrap**: Framework CSS para estilização.
 - **jQuery**: Biblioteca JavaScript para interações dinâmicas.
 
-### 4. **Node.js e npm** (opcional)
-
-- Necessários apenas se você quiser instalar as dependências front-end localmente.
-- [Download Node.js](https://nodejs.org/)
-
 ---
 
 ## **Instalação**
