@@ -18,7 +18,7 @@ com AJAX para interações dinâmicas.
 </a>
 
 <a href="https://github.com/matheuszuge/task-project-php/blob/main/.github/taskproject.png">
-  <img src=".github/taskproject.png" alt="Task project Screenshot"/>
+  <img src=".github/taskproject.png" alt=""/>
 </a>
 
 <a href="https://github.com/matheuszuge/task-project-php/blob/main/.github/contact.png">
