@@ -1,5 +1,5 @@
 <h1 align="center">
-  	Task Manager
+  	Task Project
 </h1>
 <p align="center">
   <b>Projeto de Teste</b></br>
