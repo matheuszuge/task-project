@@ -1,9 +1,5 @@
 <h1 align="center">
-<<<<<<< HEAD
-  	Task project
-=======
-  	Task Project
->>>>>>> d60a62b7174d4ec69e44618666bc44316502aee1
+TASK PROJECT
 </h1>
 <p align="center">
   <b>Projeto de Teste</b></br>
