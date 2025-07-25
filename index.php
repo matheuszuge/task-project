@@ -1,9 +1,4 @@
-<?php require_once 'tasks/get_tasks.php';
-
-?>
-
-
-
+<?php require_once 'tasks/get_tasks.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +17,7 @@
   <script src="./assets/js/addTask.js"></script>
   <script src="./assets/js/deleteTask.js"></script>
   <script src="./assets/js/updateTask.js"></script>
-  <title>Task Manager</title>
+  <title>Task project</title>
 
 <body>
   <header>
@@ -31,7 +26,7 @@
         <div class="row justify-content-center">
           <div class="col-md-8">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <a class="navbar-brand text-primary" href="#">Task Manager</a>
+              <a class="navbar-brand text-primary" href="#">Task project</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -44,7 +39,7 @@
                     <a href="#how-to-use" class="nav-link">Como usar</a>
                   </li>
                   <li class="nav-item">
-                    <a href="#task-manager" class="nav-link">Gerencie Suas Tasks</a>
+                    <a href="#task-project" class="nav-link">Gerencie Suas Tasks</a>
                   </li>
                   <li class="nav-item">
                     <a href="#contact" class="nav-link">Contato</a>
@@ -70,9 +65,9 @@
           <div class="col-md-6">
             <h2 class="fw-bold mb-4">Sobre Nós</h2>
             <p class="text-muted mb-4">
-              O <strong>Task Manager</strong> foi desenvolvido para revolucionar a forma como você e sua empresa gerenciam tarefas. Com uma abordagem inovadora, oferecemos ferramentas poderosas para aumentar a produtividade, simplificar processos e garantir que nada seja esquecido. Experimente uma nova era de organização e eficiência!
+              O <strong>Task project</strong> foi desenvolvido para revolucionar a forma como você e sua empresa gerenciam tarefas. Com uma abordagem inovadora, oferecemos ferramentas poderosas para aumentar a produtividade, simplificar processos e garantir que nada seja esquecido. Experimente uma nova era de organização e eficiência!
             </p>
-            <a href="#task-manager" class="btn btn-primary btn-lg start-now">
+            <a href="#task-project" class="btn btn-primary btn-lg start-now">
               <i class="fas fa-tasks me-2"></i> Comece Agora
             </a>
           </div>
@@ -87,9 +82,9 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center">
-            <h2 class="fw-bold mb-4">Como Usar o Task Manager</h2>
+            <h2 class="fw-bold mb-4">Como Usar o Task project</h2>
             <p class="lead mb-5">
-              Aprenda a utilizar o Task Manager de forma eficiente para gerenciar suas tarefas e aumentar sua produtividade.
+              Aprenda a utilizar o Task project de forma eficiente para gerenciar suas tarefas e aumentar sua produtividade.
             </p>
           </div>
         </div>
@@ -131,7 +126,7 @@
       </div>
     </section>
 
-    <section id="task-manager" class="content task-manager-section py-5 bg-white">
+    <section id="task-project" class="content task-project-section py-5 bg-white">
       <div class="container">
         <div class="row">
           <div class="col-12 text-end mb-4">

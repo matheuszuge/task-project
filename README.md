@@ -1,5 +1,5 @@
 <h1 align="center">
-  	Task Manager
+  	Task project
 </h1>
 <p align="center">
   <b>Projeto de Teste</b></br>
@@ -9,20 +9,20 @@ com AJAX para interações dinâmicas.
 <sub>
 </p>
 
-<a href="https://github.com/matheuszuge/task-manager-php/blob/main/.github/home.png">
-  <img src=".github/home.png" alt="Task Manager Screenshot" />
+<a href="https://github.com/matheuszuge/task-project-php/blob/main/.github/home.png">
+  <img src=".github/home.png" alt="Task project Screenshot" />
 </a>
 
-<a href="https://github.com/matheuszuge/task-manager-php/blob/main/.github/howToUse.png">
-  <img src=".github/howToUse.png" alt="Task Manager Screenshot"/>
+<a href="https://github.com/matheuszuge/task-project-php/blob/main/.github/howToUse.png">
+  <img src=".github/howToUse.png" alt="Task project Screenshot"/>
 </a>
 
-<a href="https://github.com/matheuszuge/task-manager-php/blob/main/.github/taskManager.png">
-  <img src=".github/taskManager.png" alt="Task Manager Screenshot"/>
+<a href="https://github.com/matheuszuge/task-project-php/blob/main/.github/taskproject.png">
+  <img src=".github/taskproject.png" alt="Task project Screenshot"/>
 </a>
 
-<a href="https://github.com/matheuszuge/task-manager-php/blob/main/.github/contact.png">
-  <img src=".github/contact.png" alt="Task Manager Screenshot"/>
+<a href="https://github.com/matheuszuge/task-project-php/blob/main/.github/contact.png">
+  <img src=".github/contact.png" alt="Task project Screenshot"/>
 </a>
 
 ## **Dependências**
@@ -52,9 +52,9 @@ Siga os passos abaixo para configurar e rodar o projeto localmente:
 ### 1. **Clone o Repositório**
 
 ```bash
-git clone https://github.com/matheuszuge/task-manager-php
+git clone https://github.com/matheuszuge/task-project-php
 
-cd task-manager-php
+cd task-project-php
 
 ```
 
